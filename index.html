@@ -1,13 +1,13 @@
 <!-- Unit 13 Project
 Requirements
-[  ] Two Interactive Drop-down Inputs 
-[  ] Two Different jQuery Animation Methods 
-[  ] Add Five CSS Declarations
-[  ] Include Three Images
+[ yes ] Two Interactive Drop-down Inputs 
+[ yes ] Two Different jQuery Animation Methods 
+[ yes ] Add Five CSS Declarations
+[ yes ] Include Three Images
 
 Select ONE Additional Feature to Add  
 [ no ] Feature 1 - Google Font
-[ no ] Feature 2 - Upload a Font
+[ yes] Feature 2 - Upload a Font
 [ no ] Feature 3 - .mouseover() Method
 [ no ] Feature 4 - :hover Feature 
 [ no ] Feature 5 - Add an Additional Interactive Drop-down
@@ -23,48 +23,82 @@ Select ONE Additional Feature to Add
   <body>
     <h1>Quiz About [Me]</h1>
     <hr />
+   
+    <style>
+      .Major {
+        font: italic 20px fantasy;
+      }
+      .Color{
+        font-family: clean;
+        font-size: 30px;
+      }
+      
+      @font-face{
+        font-family: clean;
+        src: url(https://cdn.glitch.global/49d80f9c-f284-4478-b13e-4e0e9ca8ea77/Sakitu%20Baelah%20Clean.otf?v=1747423415446)
+      }
+    </style>
+    
     <!-- Movie Question -->
     <form id="movie-form">
-      <label>
-        🎥 What is my favorite movie?
-        <select id="movie-answer">
-          <option value="movie1">movie 1</option>
-          <option value="movie2">movie 2</option>
-          <option value="movie3">movie 3</option>
-          <option value="movie4">movie 4</option>
+      <label class="Major">
+        🏫 What is my Major?
+        <select id="major-Answer">
+          <option value="major1">Dance🕺🏾</option>
+          <option value="major2">Instrumental🎵</option>
+          <option value="major3">Tech🔨</option>
+          <option value="major4">Visual Arts🖼</option>
+          <option value="major5"> Drama 🎭</option>
+          <option value="major6"> Vocal🎤</option>
+          
         </select>
       </label>
       <button type="submit">Check Movie Answer</button>
     </form>
     <div id="movie-result"></div>
     <hr />
+    
+
+    
     <!-- Book Question -->
     <form id="book-form">
-      <label>
-        📖 What is my favorite book?
+      <label class="Color">
+       What is My Favorite Color?
         <select id="book-answer">
-          <option value="book1">book 1</option>
-          <option value="book2">book 2</option>
-          <option value="book3">book 3</option>
-          <option value="book4">book 4</option>
+          <option value="book1"> Blue</option>
+          <option value="book2"> Green</option>
+          <option value="book3"> Grey</option>
+          <option value="book4"> Black</option>
+          <option value="book5"> Red</option>
         </select>
       </label>
       <button type="submit">Check Book Answer</button>
     </form>
     <div id="book-result"></div>
+    
+    <img id ="congrats"
+        src="https://www.cardmore.com/cdn/shop/products/0012_61530.jpg?v=1659704318"
+         width="100">
+    <img id="dissapointed"
+         src="https://sereneprincess.wordpress.com/wp-content/uploads/2013/05/disappointed.jpg"
+         width="100">
+    <img id="theEnd"
+         src="https://m.media-amazon.com/images/M/MV5BMWQzNWU5MmMtM2FjNC00MGMwLWI1ODAtZTAwZmEwOGU1OTA3XkEyXkFqcGc@._V1_.jpg"
+         width="200">
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
       //Movie Question jQuery Code
       $("#movie-form").on("submit", function (event) {
         event.preventDefault();
 
-        var $answer = $("#movie-answer");
+        var $answer = $("#major-Answer");
         var answer = $answer.val();
 
-        if (answer === "movie1") {
-          $("#movie-result").text("YESSSS!");
+        if (answer === "major2") {
+          $("#movie-result").text("CORRECT!!!!!🎵🎺🎷🎻🥁");
         } else {
-          $("#movie-result").text("Try Again!");
+          $("#movie-result").text("mmmm...Not Quite😢");
         }
       });
 
@@ -76,11 +110,27 @@ Select ONE Additional Feature to Add
         var answer = $answer.val();
 
         if (answer === "book1") {
-          $("#book-result").text("YESSSS!");
+          $("#book-result").text("Yup, the only RIGHT ANSWER");
         } else {
-          $("#book-result").text("Try Again!");
+          $("#book-result").text("Try Again");
+        }
+        if (answer=== "book4") {
+          $("#book-result").text("Come On Now... who's favorite color is black🤦🏽‍♂️");
         }
       });
+      
+        $("#congrats").animate({
+          width: "300px",  },
+        2500);
+      
+      $("#dissapointed").animate({
+          width: "300px",  },
+        2500);
+      
+      $("#theEnd").animate({
+          marginLeft: "600px",  },
+        2500);
+      
     </script>
   </body>
 
